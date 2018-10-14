@@ -1,3 +1,15 @@
+1. Download the Chef-server package 
+      wget  https://packages.chef.io/files/stable/chef-server/12.17.33/ubuntu/16.04/chef-server-core_12.17.33-1_amd64.deb
+      sudo dpkg -i chef-server-core_12.17.33-1_amd64.deb
+      sudo chef-server-ctl reconfigure
+      sudo chef-server-ctl user-create sharique Sharique Masood sharique.masood@tothenew.com 'mypassword' --filename /home/ubuntu/sharique.pem
+      sudo chef-server-ctl org-create ttn 'To The New' --association_user sharique --file /home/ubuntu/ttn-validator.pem
+      sudo chef-server-ctl install chef-manage
+      sudo chef-server-ctl reconfigure
+      sudo chef-manage-ctl reconfigure
+Note: go to web browser add ip open chef-manage ui . enter username and password then login
+
+
 2. chef-validator.pem
       This key is generated during the creation of an organization. The chef-validator.pem is 
       already trusted by the Chef Server and the chef-client uses it to generate a public/private 
