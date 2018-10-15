@@ -48,4 +48,5 @@ Note:  creating first node that will be managed by chef server
    knife upload cookbooks/webserver
    knife node run_list add node1 'recipe[webserver::default]'
    knife node show node1
+   knife ssh 'name:node1' 'sudo chef-client' -x ubuntu                        Note: enter the node password
 
