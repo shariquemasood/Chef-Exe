@@ -20,7 +20,9 @@ Note: If you are using ec2 instance as a chef-server update the instance hostnam
       knife ssl check
       
       
-      
+Note:  we’ll create our first node that will be managed by our chef serve
+       and see how we can deploy configuration changes to this node.
+       knife bootstrap ec2-18-191-232-22.us-east-2.compute.amazonaws.com -N node1 -x ubuntu -P 'ttn' --sudo
 
 
 2. chef-validator.pem
