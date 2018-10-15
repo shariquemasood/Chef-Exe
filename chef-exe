@@ -8,15 +8,18 @@
       sudo chef-server-ctl reconfigure
       sudo chef-manage-ctl reconfigure
 Note: go to web browser add ip of your machine open chef-manage ui . enter username and password then login
+Note: If you are using ec2 instance as a chef-server update the instance hostname as public hostname.
 
    Download the Chefdk package
       wget https://packages.chef.io/files/stable/chefdk/3.3.23/ubuntu/16.04/chefdk_3.3.23-1_amd64.deb
       sudo dpkg -i chefdk_3.3.23-1_amd64.deb
-      knife configure               Note: Add the orgnisation url and user
+      knife configure               Note: used to interact with chef server
       chef generate repo mycookbook
-      Go to mycookbook and run below command
+      cd mycookbook
       knife ssl fetch
       knife ssl check
+      
+      
       
 
 
