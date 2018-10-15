@@ -14,6 +14,9 @@ Note: go to web browser add ip of your machine open chef-manage ui . enter usern
       sudo dpkg -i chefdk_3.3.23-1_amd64.deb
       knife configure               Note: Add the orgnisation url and user
       chef generate repo mycookbook
+      Go to mycookbook and run below command
+      knife ssl fetch
+      knife ssl check
       
 
 
