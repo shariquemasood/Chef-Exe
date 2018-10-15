@@ -41,3 +41,10 @@ Note:  creating first node that will be managed by chef server
       authenticate against a Chef Server when doing things with knife.
       
       If chef-validator.pem is missing then he initial chef-client run will fail.
+      
+3. Download the starter Kit from chef-server ui . Extract it then go to that folder run 
+   knife ssl fetch.
+   chef generate cookbook webserver
+   knife upload /webserver
+   knife node run_list add node1 'recipe[webserver::default]'
+
