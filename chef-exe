@@ -49,4 +49,16 @@ Note:  creating first node that will be managed by chef server
    knife node run_list add node1 'recipe[webserver::default]'
    knife node show node1
    knife ssh 'name:node1' 'sudo chef-client' -x ubuntu                        Note: enter the node password
-
+   
+6. knife node create webserver
+      in run_lst section add your webserver recipe
+      "run_list": [
+            "recipe[webserver:default]",
+  ],
+    
+   knife node create database
+       in run_list section add your database recipe
+       "run_list": [
+            "recipe[mysql::default]",
+            "recipe[mongodb::default]"
+  ],
