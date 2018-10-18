@@ -11,19 +11,19 @@ Note: go to web browser add ip of your machine open chef-manage ui . enter usern
 Note: If you are using ec2 instance as a chef-server update the instance hostname as public hostname.
 
    Download the Chefdk package
-      wget https://packages.chef.io/files/stable/chefdk/3.3.23/ubuntu/16.04/chefdk_3.3.23-1_amd64.deb
-      sudo dpkg -i chefdk_3.3.23-1_amd64.deb
-      knife configure               Note: used to interact with chef server
-      chef generate repo mycookbook
-      cd mycookbook
-      knife ssl fetch
-      knife ssl check
+      #wget https://packages.chef.io/files/stable/chefdk/3.3.23/ubuntu/16.04/chefdk_3.3.23-1_amd64.deb
+      #sudo dpkg -i chefdk_3.3.23-1_amd64.deb
+      #knife configure               Note: used to interact with chef server
+      #chef generate repo mycookbook
+      #cd mycookbook
+      #knife ssl fetch
+      #knife ssl check
       
       
 Note:  creating first node that will be managed by chef server
        and  deploy configuration changes to this node.
-       knife bootstrap ec2-18-191-232-22.us-east-2.compute.amazonaws.com -N node1 -x ubuntu -P 'ttn' --sudo
-       knife node list
+       #knife bootstrap ec2-18-191-232-22.us-east-2.compute.amazonaws.com -N node1 -x ubuntu -P 'ttn' --sudo
+       #knife node list
 
 
 2. chef-validator.pem
@@ -43,20 +43,20 @@ Note:  creating first node that will be managed by chef server
       If chef-validator.pem is missing then he initial chef-client run will fail.
       
 3. Download the starter Kit from chef-server ui . Extract it then go to that folder run 
-   knife ssl fetch.
-   chef generate cookbook cookbooks/webserver
-   knife upload cookbooks/webserver
-   knife node run_list add node1 'recipe[webserver::default]'
-   knife node show node1
-   knife ssh 'name:node1' 'sudo chef-client' -x ubuntu                        Note: enter the node password
+   #knife ssl fetch.
+   #chef generate cookbook cookbooks/webserver
+   #knife upload cookbooks/webserver
+   #knife node run_list add node1 'recipe[webserver::default]'
+   #knife node show node1
+   #knife ssh 'name:node1' 'sudo chef-client' -x ubuntu                        Note: enter the node password
    
-6. knife node create webserver
+6.#knife node create webserver
       in run_lst section add your webserver recipe
       "run_list": [
             "recipe[webserver:default]",
   ],
     
-   knife node create database
+   #knife node create database
        in run_list section add your database recipe
        "run_list": [
             "recipe[mysql::default]",
@@ -65,3 +65,6 @@ Note:  creating first node that will be managed by chef server
   knife node run_list add node1 'role[webserver]'
   knife node run_list add centos 'role[database]'
   knide node show node1 -a run_list
+  
+  ---configure ec2 plugin-------
+  #chef gem install knife-ec2
