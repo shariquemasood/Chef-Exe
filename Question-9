@@ -1,0 +1,48 @@
+#chef gem install kitchen-docker
+--Open the inspect test file
+#vim  cookbooks/webserver/test/integration/default/default_test.rb
+-- add following test cases for eg
+
+describe service('nginx') do
+  it { should be_installed }
+  it { should be_running }
+  it { should be_enabled }
+end
+
+describe file('/etc/nginx/nginx.conf') do
+  its('content') { should match(%r{gzip\s+on}) }
+end
+
+--save and quit
+:wq!
+--Got to your cookbook folder there you get .kitchen.yml
+#cd cookbooks/webserver/
+#vim .kitchen.yml
+
+in driver name chage to docker
+in platform section add the number of os you want to run your cookbook with test cases
+eg 
+
+platforms:
+  - name: ubuntu-16.04
+    driver_config:
+      run_command: /bin/systemd
+      privileged: true
+  - name: centos-7
+    driver_config:
+      run_command: /usr/sbin/init
+      privileged: true
+      provision_command:
+        - systemctl enable sshd.service
+        
+ ---save and quit
+--to see list of os you configure in .kitchen.yml
+#sudo kitchen list
+#sudo kitchen create
+or
+#sudo kitchen create instance_name    --------for creating instances
+
+#sudo kitchen test                    --------for runnign your test cases on that instances
+or
+#sudo kitchen test instance_name
+
