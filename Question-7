@@ -1,0 +1,9 @@
+#knife environment create QA --description 'QA environment'
+#knife environment create PROD --description 'UAT and PROD environment'
+#knife environment list
+#knife node show node1 -a environment    (--to see which environment node1 is using bydefault add node connected to _default environment)
+#knife node environment_set node1 QA
+#knife node environment_set node2 PROD
+#Knife node show node1 -a environment
+
+
