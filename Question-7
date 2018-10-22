@@ -6,4 +6,46 @@
 #knife node environment_set node2 PROD
 #Knife node show node1 -a environment
 
+----Editing the Environment-----
+#knife environment edit QA
+
+{
+  "name": "QA",
+  "description": "QA environment",
+  "cookbook_versions": {
+    "mysql": "= 0.1.0"
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "mysql": {
+      "root_pass": "root"
+    }
+  }
+}
+
+:wq
+
+#knife environment edit PROD
+{
+  "name": "PROD",
+  "description": "UAT and PROD environment",
+  "cookbook_versions": {
+    "mysql": "= 1.1.0"
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "mysql": {
+      "root_pas": "root"
+    }
+  }
+}
+
 
