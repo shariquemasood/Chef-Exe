@@ -74,4 +74,7 @@ Note:  creating first node that will be managed by chef server
 knife[:aws_access_key_id] = "AAAAAAAAAAAAAAAAAAAA"
 knife[:aws_secret_access_key] = "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
 
+:wq
+#knife ec2 server create -I ami-0782e9ee97725263d -r "role[QA]"  -S sharique-chef-client -f t2.micro  --region us-east-2
+
   
