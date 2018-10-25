@@ -68,3 +68,10 @@ Note:  creating first node that will be managed by chef server
   
   ---configure ec2 plugin-------
   #chef gem install knife-ec2
+  #knife ec2 server list
+  
+  -----configure Acesskey and Secret key in .chef/knife.rb and add Below line also add the aws pem file in chef-repo directory
+knife[:aws_access_key_id] = "AAAAAAAAAAAAAAAAAAAA"
+knife[:aws_secret_access_key] = "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
+
+  
