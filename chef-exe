@@ -76,11 +76,11 @@ knife[:aws_access_key_id] = "AAAAAAAAAAAAAAAAAAAA"
 knife[:aws_secret_access_key] = "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
 
 :wq
-#knife ec2 server create -I ami-0782e9ee97725263d -r "role[QA]"  -S sharique-chef-client -f t2.micro  --region us-east-2
-#knife ec2 server create -I ami-0782e9ee97725263d -r "role[QA]" --groups ec2-chef-plugin -S sharique-chef-client  
--f t2.micro  --region us-east-2
 
-#sudo knife ec2 server create -I ami-0782e9ee97725263d -r "role[QA]" --groups ec2-chef-plugin -f t2.micro 
+#sudo knife ec2 server create -I ami-0782e9ee97725263d -r "role[webserver]" --groups ec2-chef-plugin -f t2.micro 
+-S sharique-chef-client --region us-east-2 --ssh-user ubuntu -i  sharique-chef-client.pem
+
+#sudo knife ec2 server create -I ami-0782e9ee97725263d -r "role[database]" --groups ec2-chef-plugin -f t2.micro 
 -S sharique-chef-client --region us-east-2 --ssh-user ubuntu -i  sharique-chef-client.pem
 
   
