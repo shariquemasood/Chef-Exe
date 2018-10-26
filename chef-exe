@@ -62,6 +62,7 @@ Note:  creating first node that will be managed by chef server
             "recipe[mysql::default]",
             "recipe[mongodb::default]"
   ],
+  knife role list
   knife node run_list add node1 'role[webserver]'
   knife node run_list add centos 'role[database]'
   knide node show node1 -a run_list
