@@ -1,0 +1,26 @@
+knife role create TIG-Stack
+
+{
+  "name": "TIG-STACK",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": [
+        "recipe[Telegraf::default]",
+        "recipe[InfluxDB::default]",
+        "recipe[Grafana::default]"
+
+  ],
+  "env_run_lists": {
+
+  }
+}
+
+knife role list
+knife node run_list add ubuntu 'role[TIG-STACK]'
