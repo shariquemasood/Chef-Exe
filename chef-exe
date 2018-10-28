@@ -50,6 +50,26 @@ Note:  creating first node that will be managed by chef server
    #knife node show node1
    #knife ssh 'name:node1' 'sudo chef-client' -x ubuntu                        Note: enter the node password
    
+   
+5.--------Creating a DataBag for holding MySql Password-------- in chef-repo i.e parent directory
+   knife data bag create databases
+   knife data bag create databases mysql                                       Note: creating a database item i.e mysql
+   in vim write
+      
+   {
+  "id": "mysql"
+  "root_password": "ttn"
+   }
+   
+   Now edit the mysql cookbook replace initial root passwords with below
+   vim cookbooks/mysql/recipe/ubuntu.rb
+   # Load MySQL passwords from the 'passwords' data bag.
+   passwords = data_bag_item('database', 'mysql')
+   
+   initial_root_password passwords['root_password']
+   
+
+   
 6.#knife role create webserver
       in run_lst section add your webserver recipe
       "run_list": [
