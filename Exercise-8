@@ -1,4 +1,4 @@
-knife role create TIG-Stack
+knife role create TIG-STACK
 
 {
   "name": "TIG-STACK",
