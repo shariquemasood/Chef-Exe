@@ -52,8 +52,8 @@ Note:  creating first node that will be managed by chef server
    
    
 5.--------Creating a DataBag for holding MySql Password-------- in chef-repo i.e parent directory
-   knife data bag create databases
-   knife data bag create databases mysql                                       Note: creating a database item i.e mysql
+   knife data bag create database
+   knife data bag create database mysql                                       Note: creating a database item i.e mysql
    in vim write
       
    {
@@ -63,7 +63,7 @@ Note:  creating first node that will be managed by chef server
    
    Now edit the mysql cookbook replace initial root passwords with below
    vim cookbooks/mysql/recipe/ubuntu.rb
-   # Load MySQL passwords from the 'passwords' data bag.
+   # Load MySQL passwords from the 'database' data bag.
    passwords = data_bag_item('database', 'mysql')
    
    initial_root_password passwords['root_password']
